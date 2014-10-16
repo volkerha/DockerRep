@@ -15,6 +15,13 @@ def upload_file():
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
 
-@app.route("/getSum")
-def getSum():
+@app.route("/test")
+def test():
     return "yeees it works"
+
+@app.route("/download", methods=['GET', 'POST'])
+def download():
+    if request.method == 'GET':
+	f = request.files['file']
+   	f.load('./upload/'+f.filename)
+    return '', 201    	
