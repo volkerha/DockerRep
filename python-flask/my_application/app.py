@@ -26,7 +26,7 @@ def euler1():
     #multiple of 3 or 5? add to sum
         if (counter % const1 == 0 or counter % const2 == 0):
             sum += counter
-    counter += 1
+        counter += 1
     return sum
   
 app.route('/euler2')
@@ -39,7 +39,7 @@ def euler2():
     #even fib? add to sum
         if fib2 % 2 == 0:
             sum += fib2
-    #swap fib to calc next fib
+        #swap fib to calc next fib
     tmp = fib2
     fib2 += fib1
     fib1 = tmp
