@@ -1,11 +1,22 @@
 from flask import Flask
 from flask import request
+import os, sys
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
     return "Hello World!"
 
+@app.route('/listfiles')
+def list():
+    files = ""
+    path = "./uploads"
+    file = os.listdir(path)
+    for i in file:
+        files += i + " "
+    return files + "\n"
+
+  
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
