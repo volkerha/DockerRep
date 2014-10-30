@@ -25,7 +25,7 @@ def euler1():
     while(counter < 1000):
     #multiple of 3 or 5? add to sum
         if (counter % const1 == 0 or counter % const2 == 0):
-        sum += counter
+            sum += counter
     counter += 1
     return sum
   
