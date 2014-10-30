@@ -26,7 +26,7 @@ def euler1():
     #multiple of 3 or 5? add to sum
         if (counter % const1 == 0 or counter % const2 == 0):
             sum += counter
-        counter += 1
+    counter += 1
     return sum
   
 app.route('/euler2')
