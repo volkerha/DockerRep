@@ -29,7 +29,7 @@ def euler1():
         counter += 1
     return sum
   
-app.route('/euler2')
+@app.route('/euler2')
 def euler2():
     fib1 = 1
     fib2 = 2
