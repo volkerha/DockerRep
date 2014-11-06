@@ -40,9 +40,9 @@ def euler2():
         if fib2 % 2 == 0:
             sum += fib2
         #swap fib to calc next fib
-    tmp = fib2
-    fib2 += fib1
-    fib1 = tmp
+        tmp = fib2
+        fib2 += fib1
+        fib1 = tmp
     return str(sum)
   
 @app.route('/upload', methods=['GET', 'POST'])
