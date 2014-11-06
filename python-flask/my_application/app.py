@@ -27,7 +27,7 @@ def euler1():
         if (counter % const1 == 0 or counter % const2 == 0):
             sum += counter
         counter += 1
-    return sum
+    return str(sum)
   
 @app.route('/euler2')
 def euler2():
@@ -43,7 +43,7 @@ def euler2():
     tmp = fib2
     fib2 += fib1
     fib1 = tmp
-    return sum
+    return str(sum)
   
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
