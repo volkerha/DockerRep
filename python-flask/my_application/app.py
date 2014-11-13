@@ -13,6 +13,27 @@ app = Flask(__name__)
 def hello():
     return "Hello World!"
 
+@app.route('/createQueue')
+def createQ():
+    conn = boto.sqs.connect_to_region("eu-west-1", aws_access_key_id='AKIAIR7EH3TNSTDUCWKA', aws_secret_access_key='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')
+    q = conn.create_queue("queue_jabba")
+    #write 1 message to queue
+    m = Message()
+    m.set_body('first message')
+    q.write(m)
+    #write 100 messages to queue
+    for x in range(1, 100):
+        mx = Message()
+        mx.set_body('Message'+x)
+        q.write(mx)
+    #read message from queue
+    rs = q.get_messages()
+    mread = rs[0]
+    mread.get_body()
+    #delete message from queue
+    q.delete_message(m)
+    return mread
+  
 @app.route('/listqueues')
 def listQueues():
     conn = boto.sqs.connect_to_region("eu-west-1", aws_access_key_id='AKIAIR7EH3TNSTDUCWKV', aws_secret_access_key='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')
