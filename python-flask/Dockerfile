@@ -27,6 +27,9 @@ ADD /my_application /my_application
 # Get pip to download and install requirements:
 RUN pip install -r /my_application/requirements.txt
 
+# Install boto
+RUN pip install boto
+
 # Expose ports
 EXPOSE 5000
 
