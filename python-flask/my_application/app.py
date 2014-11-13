@@ -1,12 +1,27 @@
 from flask import Flask
 from flask import request
 import os, sys
+#import boto
+import boto.sqs
+import boto.sqs.queue
+from boto.sqs.message import Message
+from boto.sqs.connection import SQSConnection
+from boto.exception import SQSError
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
     return "Hello World!"
 
+@app.route('/listqueues')
+def listQueues():
+    conn = boto.sqs.connect_to_region("eu-west-1", aws_access_key_id='AKIAIR7EH3TNSTDUCWKV', aws_secret_access_key='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')
+    rs = conn.get_all_queues()
+    qString = ""
+    for q in rs:
+        qString += q.id + "\n"
+    return qString
+  
 @app.route('/listfiles')
 def list():
     files = ""
